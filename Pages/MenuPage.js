@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { View, Text, ScrollView, TouchableOpacity, StyleSheet } from 'react-native';
 import { getPizzas } from '../Services/pizzaService';
+import Header from './Header';
 
 const MenuPage = ({ navigation }) => {
   const [pizzas, setPizzas] = useState([]);
@@ -44,8 +45,11 @@ const MenuPage = ({ navigation }) => {
   };
 
   return (
+    
     <View style={styles.container}>
-      <Text style={styles.title}>Menu da Pizzaria</Text>
+      <View>
+        <Header />
+      </View>
       <ScrollView style={styles.menuContainer}>
         {pizzas.map((pizza, index) => (
           <TouchableOpacity key={index} style={styles.pizzaItem} onPress={() => addToCart(pizza)}>
@@ -76,7 +80,7 @@ const styles = StyleSheet.create({
   container: {
     flex: 1,
     padding: 16,
-    backgroundColor: '#f0f0f0',
+    backgroundColor: '#DBA855',
   },
   title: {
     fontSize: 24,
@@ -87,8 +91,10 @@ const styles = StyleSheet.create({
     flex: 1,
   },
   pizzaItem: {
-    backgroundColor: 'white',
-    padding: 16,
+    marginTop: 30,
+    paddingTop: 20,
+    backgroundColor: '#FFC929',
+    padding: 20,
     marginVertical: 8,
     borderRadius: 8,
     elevation: 2,
